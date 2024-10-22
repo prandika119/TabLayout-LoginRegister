@@ -13,7 +13,10 @@
         android:theme="@style/Theme.LoginRegister"
         tools:targetApi="31">
         <activity
-            android:name=".Profile"
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Login"

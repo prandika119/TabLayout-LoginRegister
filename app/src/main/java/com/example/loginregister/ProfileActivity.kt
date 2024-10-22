@@ -1,14 +1,14 @@
 package com.example.loginregister
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.loginregister.databinding.ActivityLoginBinding
 import com.example.loginregister.databinding.ActivityProfileBinding
 
-class Profile : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,10 +16,11 @@ class Profile : AppCompatActivity() {
 
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val name = intent.getStringExtra("extra_name")
-        val email = intent.getStringExtra("extra_email")
-        val telp = intent.getStringExtra("extra_telp")
-        val gender = intent.getStringExtra("extra_gender")
+        val sharedPref = getSharedPreferences("DataPengguna", Context.MODE_PRIVATE)
+        val name = sharedPref.getString("name", "")
+        val email = sharedPref.getString("email", "")
+        val telp = sharedPref.getString("telp", "")
+        val gender = sharedPref.getString("gender", "")
         with(binding){
             txtVname.text = name
             txtVemail.text = email
